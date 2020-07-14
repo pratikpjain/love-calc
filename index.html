@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite</title>
+    <style>
+        body {
+            background : linear-gradient(pink  , skyblue);
+            /* added image for background*/
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            font-family: cursive;
+        }
+
+        /* targeting  image */
+        .love-img {
+            display: block;
+            margin: auto;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* targeting header */
+        header {
+            text-align: center;
+            margin: 50px;
+            font-size: 50px;
+            letter-spacing: 2px;
+        }
+
+        h3 {
+            margin-top: 40px;
+            margin-bottom: 6px;
+        }
+
+        /* Targeting form */
+        .container {
+            text-align: left;
+            width: 50%;
+            margin: 50px auto 50px auto;
+            padding: 50px 100px;
+            border-radius: 5px;
+            box-shadow: 12px 12px 50px 2px black;
+        }
+
+        label {
+            color: black;
+            margin: 5px 10px;
+        }
+
+        .for {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            outline: none;
+            border-radius: 8px;
+            background-color: white;
+            color: black;
+            display: block;
+            width: 400px;
+            padding: 15px 25px;
+            margin: 5px 5px 20px 5px;
+            font-size: 22px;
+        }
+
+        input[type="checkbox"] {
+            margin-left: 250px;
+            margin-right: 10px;
+        }
+
+        .check {
+            font-family: monospace;
+        }
+
+        button {
+            display: block;
+            margin: 30px auto;
+            /* width: 100px; */
+            padding: 10px 20px;
+            outline: none;
+            box-shadow: 2px 2px 8px 2px black;
+            cursor: pointer;
+            font-size: 30px;
+            border-radius: 12px;
+            background-color: pink;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        /* targrting result window */
+        .perc {
+            width: 200px;
+            background-color: pink;
+            margin: 20px auto;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 2px 2px 12px 2px black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        💘LOVE CALCULATOR💘
+    </header>
+    <div class="container">
+        <form action="">
+            <!--Form containing data usge-->
+            <label for="">Your Name</label>
+            <input type="text" class="for" id='one' placeholder="Enter Name here" required>
+            <label for="">Your Age</label>
+            <input type="number" class="for" id='two' required max="100" min="0" placeholder="Enter Your Age">
+            <label for="">Your Best Friend Name </label>
+            <input type="text" class="for" id='three' placeholder="Enter your best friend name" required>
+            <label for="">Age of Friend</label>
+            <input type="number" class="for" id='four' required max="100" min="0"
+                placeholder="Enter Age of your friend">
+            <h3>Describe Yourself by choosing one of the options</h3>
+            <input type="radio" name="1"><label>Emotional</label><br>
+            <input type="radio" name="1"><label>Angry</label><br>
+            <input type="radio" name="1"><label>Smart</label><br>
+            <input type="radio" name="1"><label>Good Looking</label><br>
+            <input type="radio" name="1"><label>This options doesn't describe me</label><br><br>
+            <h3>Describe Your Friend by choosing one of the options</h3>
+            <input type="radio" name="2"><label>Emotional</label><br>
+            <input type="radio" name="2"><label>Angry</label><br>
+            <input type="radio" name="2"><label>Smart</label><br>
+            <input type="radio" name="2"><label>Good Looking</label><br>
+            <input type="radio" name="2"><label>This options doesn't describe my friend</label><br>
+            <br><br><br>
+            <!-- checkbox for accepting condition -->
+            <input type="checkbox" name="" id="myid" onclick="myfun()"><label class="check" for="">I will not mind what
+                the result is.</label>
+            <!-- button to calculate -->
+            <button id="btn" disabled onclick="love()">Calculate</button>
+        </form>
+    </div>
+    <!--javascript file-->
+    <script>
+        // function to disable or enable the calculate button
+
+        function myfun() {
+            if (document.getElementById('myid').checked == true) {
+                document.getElementById("btn").disabled = false;
+            }
+            else {
+                document.getElementById("btn").disabled = true;
+            }
+        }
+
+
+        // function to calculate the result
+        function love() {
+            // condition to check whether all fields are filled properly
+            if (document.getElementById('one').value == '' || document.getElementById('two').value == '' ||
+                document.getElementById('three').value == '' || document.getElementById('four').value == '') {
+                alert('Fill All the fields');
+                return;
+            }
+            document.getElementById("btn").disabled = true;
+            document.getElementById('myid').disabled = true;
+            var x = Math.random();
+            // calculation using Math.random(); function
+            var l = x * 100 - x * 35 + 35;
+            l = Math.floor(l)
+            document.querySelector('.container').innerHTML += '<div class="perc"> Love Percent is ' + l + '%';
+            return;
+        }
+    </script>
+
+</body>
+
+</html>
